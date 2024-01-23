@@ -10,9 +10,11 @@ require('./DB/connection')
 const projectServer = express();
 
 projectServer.use(cors());
+
 // convert json to js
 projectServer.use(express.json());
 projectServer.use(router)
+projectServer.use('/Uploads',express.static('./Uploads'))
 const PORT = 4000 || process.env.PORT;
 
 projectServer.listen(PORT, () => {
